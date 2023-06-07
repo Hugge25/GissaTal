@@ -11,15 +11,6 @@ namespace FormYay
             lbxStörstaTalet.Items.Add(10);
             lbxStörstaTalet.Items.Add(20);
             lbxStörstaTalet.SelectedItem = lbxStörstaTalet.Items[0];
-
-        }
-
-        private void tbxMinaResultat_TextChanged_1(object sender, EventArgs e)
-        {
-            tbxMinaResultat.AppendText("Rad 1\n");
-            tbxMinaResultat.AppendText("Rad 2\n");
-            tbxMinaResultat.AppendText("Rad 3\n");
-            tbxMinaResultat.AppendText("Rad 4\n");
         }
 
         private void btnStartaSpelet_Click(object sender, EventArgs e)
@@ -45,8 +36,44 @@ namespace FormYay
 
             if(gissatTal == datornsTal)
             {
+                lblResultat.Text = "Korrekt efter " + antalGissningar + " försök.";
+                gbxSpelet.Enabled = false;
+                gbxSpeldata.Enabled= true;
+                btnSpelaIgen.Enabled = true;
 
+                lblDatornsTal.Text = datornsTal.ToString();
+                tbxMinaResultat.AppendText(antalGissningar + " försök");
+                tbxMinaResultat.AppendText(Environment.NewLine);
             }
+
+            else if (gissatTal < datornsTal)
+            {
+                lblResultat.Text = "För lågt. Försök igen.";
+            }
+            else
+            {
+                lblResultat.Text = "För högt. Försök igen.";
+            }
+        }
+
+        private void btnSpelaIgen_Click(object sender, EventArgs e)
+        {
+            gbxSpeldata.Enabled = true;
+            gbxSpelet.Enabled = false;
+            tbxGissa.Text = "";
+            lblResultat.Text = "";
+
+            string störstaTal = lbxStörstaTalet.SelectedItem.ToString();
+            int störst = int.Parse(störstaTal);
+            Random slump = new Random();
+            datornsTal = slump.Next(1, störst + 1);
+
+            btnStartaSpelet.Enabled = false;
+            gbxSpeldata.Enabled = false;
+            gbxSpelet.Enabled = true;
+
+            lblDatornsTal.Text = "???";
+            antalGissningar = 0;
         }
     }
 }

@@ -60,9 +60,6 @@
             // 
             this.lbxStörstaTalet.FormattingEnabled = true;
             this.lbxStörstaTalet.ItemHeight = 15;
-            this.lbxStörstaTalet.Items.AddRange(new object[] {
-            "10",
-            "20"});
             this.lbxStörstaTalet.Location = new System.Drawing.Point(94, 32);
             this.lbxStörstaTalet.Name = "lbxStörstaTalet";
             this.lbxStörstaTalet.Size = new System.Drawing.Size(90, 34);
@@ -71,13 +68,12 @@
             // tbxMinaResultat
             // 
             this.tbxMinaResultat.Enabled = false;
-            this.tbxMinaResultat.Location = new System.Drawing.Point(338, 177);
+            this.tbxMinaResultat.Location = new System.Drawing.Point(315, 63);
             this.tbxMinaResultat.Multiline = true;
             this.tbxMinaResultat.Name = "tbxMinaResultat";
             this.tbxMinaResultat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbxMinaResultat.Size = new System.Drawing.Size(90, 60);
+            this.tbxMinaResultat.Size = new System.Drawing.Size(124, 83);
             this.tbxMinaResultat.TabIndex = 2;
-            this.tbxMinaResultat.TextChanged += new System.EventHandler(this.tbxMinaResultat_TextChanged_1);
             // 
             // btnStartaSpelet
             // 
@@ -98,6 +94,7 @@
             this.btnSpelaIgen.TabIndex = 4;
             this.btnSpelaIgen.Text = "Spela Igen";
             this.btnSpelaIgen.UseVisualStyleBackColor = true;
+            this.btnSpelaIgen.Click += new System.EventHandler(this.btnSpelaIgen_Click);
             // 
             // lblMinaResultat
             // 
@@ -157,7 +154,7 @@
             this.lblResultat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblResultat.Location = new System.Drawing.Point(16, 110);
             this.lblResultat.Name = "lblResultat";
-            this.lblResultat.Size = new System.Drawing.Size(100, 23);
+            this.lblResultat.Size = new System.Drawing.Size(129, 23);
             this.lblResultat.TabIndex = 12;
             this.lblResultat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -165,6 +162,7 @@
             // 
             this.gbxSpelet.Controls.Add(this.btnGissa);
             this.gbxSpelet.Controls.Add(this.lblResultat);
+            this.gbxSpelet.Controls.Add(this.tbxMinaResultat);
             this.gbxSpelet.Controls.Add(this.lblDatornsTal);
             this.gbxSpelet.Controls.Add(this.lblGissa);
             this.gbxSpelet.Controls.Add(this.tbxGissa);
@@ -196,7 +194,6 @@
             this.ClientSize = new System.Drawing.Size(478, 300);
             this.Controls.Add(this.lblMinaResultat);
             this.Controls.Add(this.btnStartaSpelet);
-            this.Controls.Add(this.tbxMinaResultat);
             this.Controls.Add(this.gbxSpelet);
             this.Controls.Add(this.gbxSpeldata);
             this.Name = "Form1";
